@@ -1,0 +1,38 @@
+{% load filterbar %}
+
+<section class="controls">
+  <div class="controls-content">
+    <div class="meta">
+      <a href="{% url 'consultants:consultants' %}" class="meta-item">
+        <p>All</p>
+        <span>{{ all }}</span>
+      </a>
+
+      <a href="#" class="meta-item">
+        <p>Male</p>
+        <span>{{ male }}</span>
+      </a>
+
+      <a href="#" class="meta-item">
+        <p>Female</p>
+        <span>{{ female }}</span>
+      </a>
+
+      <a href="#" class="meta-item">
+        <p>International</p>
+        <span>{{ international }}</span>
+      </a>
+
+      <a href="#" class="meta-item">
+        <p>Local</p>
+        <span>{{ local }}</span>
+      </a>
+
+
+    </div>
+
+    <div class="buttons">
+      <a class="btn" href="/add-consultant">Add consultant</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="c-item">
+  <img class="c-item-img" src="{% if c.image %} {{ c.image.url }} {% else %} {% static 'images/default.jpg'%} {% endif %}" alt="Default user avatar">
+  <div class="c-item-info-block">
+    <h3 class="c-item-name">{{ c.fullname }}</h3>
+    <div class="c-item-info">
+      <div class="c-item-info-box">
+        <p class="info-box-item">{{ c.sphere }}</p>
+        <p class="info-box-item">{{ c.occupation }}</p>
+        <p class="info-box-item">{{ c.age }} years old</p>
+      </div>
+
+       <div class="c-item-info-box">
+        <p class="info-box-item">{{ c.phone }}</p>
+        <p class="info-box-item">{{ c.email }}</p>
+      </div>
+
+      <div class="c-item-info-box language-skills">
+        {% for lang in c.languages.all %}
+          <p class="info-box-item">{{ lang.title }} ({{ lang.level }})</p>
+        {% empty %}
+          <p class="info-box-item">No data</p>
+        {% endfor%}
+      </div>
+    </div>
+  </div>
+</div>

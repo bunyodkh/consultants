@@ -1,0 +1,11 @@
+{% load static %}
+
+<a href="{{ c.get_absolute_url }}" class="c-card">
+    <div class="c-img-cont">
+      <img class="c-img" src="{% if c.image %} {{ c.image.url }} {% else %} {% static 'images/default.jpg'%} {% endif %}" alt="Default user avatar">
+    </div>
+    <h3 class="c-name">{{ c.fullname }}</h3>
+    {% if c.occupation %}<p class="c-type">{{ c.occupation }}</p>{% endif %}
+    {% if c.phone %}<p class="c-phone">{{ c.phone }}</p>{% endif %}
+    {% if c.email %}<p class="c-email">{{ c.email }}</p>{% endif %}
+</a>

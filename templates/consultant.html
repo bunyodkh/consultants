@@ -1,0 +1,58 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+  {% include 'includes/header.html' %}
+
+  <section class="section consultant">
+    <div class="consultant-content">
+      <div class="con-header">
+        <img class="con-image" src="{% if c.image %} {{ c.image.url }} {% else %} {% static 'images/default.jpg'%} {% endif %}" alt="Consultant default image">
+        <h2 class="con-name">{{ c.fullname }}</h2>
+      </div>
+
+      <div class="con-body">
+        <div class="con-info-section">
+          <h3 class="info-section-heading">Contact details</h3>
+          <div class="info-section-items">
+            <p class="info-section-item">Phone: {{ c.phone }}</p>
+            <p class="info-section-item">Email: {{ c.email }}</p>
+          </div>
+        </div>
+
+        <div class="con-info-section">
+          <h3 class="info-section-heading">Language skilss</h3>
+          <div class="info-section-items">
+            {% for lang in c.languages.all %}
+              <p class="info-section-item">{{ lang }}</p>
+            {% empty %}
+              <p class="info-section-item">No data</p>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="con-info-section">
+          <h3 class="info-section-heading">Competences</h3>
+            {% for comp in c.competences.all %}
+              <p class="info-section-item">{{ comp }}</p>
+            {% empty %}
+              <p class="info-section-item">No data</p>
+            {% endfor %}
+        </div>
+
+        <div class="con-info-section">
+          <h3 class="info-section-heading">Experience</h3>
+          <p>{{ c.experience|safe }}</p>
+        </div>
+
+        <div class="con-info-section">
+          <h3 class="info-section-heading">Education</h3>
+          <p>{{ c.education }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
+
+
+<div class="con-main-info">

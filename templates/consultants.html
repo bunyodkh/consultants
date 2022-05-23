@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+  {% include 'includes/header.html' %}
+{#  {% include 'includes/controls.html' %}#}
+  {% include 'includes/searchbox.html' %}
+
+  <section class="section consultants">
+    <div class="consultants-content">
+      {% for consultant in cs %}
+        {% include 'includes/consultant-item.html' with c=consultant %}
+      {% empty %}
+        <p>No any data available</p>
+      {% endfor %}
+      
+     
+    </div>
+  </section>
+{% endblock content %}

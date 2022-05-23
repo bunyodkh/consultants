@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load filterbar %}
+
+{% block content %}
+  {% include 'includes/header.html' %}
+  <!-- {% include 'includes/controls.html' %} -->
+  {% filterbar_data %}
+  {% include 'includes/searchbox.html' %}
+
+  <section class="section main">
+    <div class="main-content">
+      <div class="cards">
+        {% if cs %}
+          {% for consultant in cs %}
+            {% include 'includes/consultant-card.html' with c=consultant %}
+          {% empty %}
+            <p>No any data available</p>
+          {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+  </section>
+{% endblock content %}

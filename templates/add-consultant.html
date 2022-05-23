@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+  {% include 'includes/header.html' %}
+  <section class="section">
+    <div class="consultant-content">
+      <form action="/add-consultant" method="POST">
+        {{ form }}  
+        <button class="btn">Add</button>
+      </form>
+    </div>    
+  </section>
+{% endblock content %}
